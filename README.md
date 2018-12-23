@@ -34,10 +34,51 @@ To make this program, you will need:
       
 Build Client-Server Connection (for connection on different computers)
 --------
-Since we use TCP connection, we need to connect the computers to the same network (you ) 
+Since we use TCP connection, we need to connect the computers to the same network (you could using LAN wire or WiFi connection).
+Here, we use WiFi connection to build client-server connection, so the computers connected to the same WiFi. Before running the code, you need to make sure the computers are connected by PING the other computer's ip address on linux terminal, using this command:
+```
+ping (ip.address)
+```
+if PING succeed, some data will appear on screen like picture below:
+
+
+this mean your computers have successfully connected and your computer ready to run the codes.
+
 
 Run The Server Code
 --------
 
+1. Compile the Code
+```
+gcc -pthread -o server server.c
+```
+2. Run the code
+It is important to remember that server code must be ran before the client code, and should be always on during chatting. If this code stop running, connection between clients are ended.
+```
+./server
+```
+after this your screen will appear like below, and after that server terminal will record communication that happened between clients:
+
+
+
 Run The Client Code
 --------
+1. Compile the Code
+```
+gcc -pthread -o client client.c
+```
+2. Run the code
+You can run the client code on the same computer where the server code run but they must be ran on different terminal. You able to run several client codes on same computer.
+```
+./client
+```
+When you run this code you have to specify ip address of server used, so if there are several server exist you can choose which server you want to use. You will also have to enter username that you want to use in groupchat. This username will appear on other clients terminal and server terminal. This picture show client terminal:
+
+
+
+PROGRAM ANALYSIS
+======
+To understand and analyze data transfer that happen within the connection, we use Wireshark to capture communication between server-client and client-client. Here is some datas that we've captured:
+
+
+From that piece of data, we can see that: 
