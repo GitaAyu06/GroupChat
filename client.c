@@ -78,7 +78,7 @@ int main()
 
     // Socket information
     char ip[16];
-	printf("masukan ip addres tujuan :");
+	printf("ip addres server :");
 	scanf("%s",ip);
     struct sockaddr_in server_info, client_info;
     int s_addrlen = sizeof(server_info);
