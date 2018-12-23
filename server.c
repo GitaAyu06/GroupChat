@@ -1,25 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <signal.h>
+#include <signal.h>         //Generating signal
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+#include <sys/types.h>      
+#include <sys/socket.h>     //For socket programming
+#include <netinet/in.h>     //For building TCP connection
 #include <arpa/inet.h>
-#include <pthread.h>
-#include "proto.h"
+#include <pthread.h>        //For make some program work in a same time
+#include "proto.h"          //Header for defining lenght of name and message that be sent or received
 #include "server.h"
 
 // Global variables
 int server_sockfd = 0, client_sockfd = 0;
 ClientList *root, *now;
 
-void catch_ctrl_c_and_exit(int sig) {
+void catch_ctrl_c_and_exit(int sig) { //function for ending the groupchat session on client by press ctrl+c button
     ClientList *tmp;
     while (root != NULL) {
         printf("\nClose socketfd: %d\n", root->data);
-        close(root->data); // close all socket include server_sockfd
+        close(root->data);  // close all socket include server_sockfd
         tmp = root;
         root = root->link;
         free(tmp);
@@ -42,7 +42,7 @@ void send_to_all_clients(ClientList *np, char tmp_buffer[]) {
 void client_handler(void *p_client) {
     int leave_flag = 0;
     char nickname[LENGTH_NAME] = {};
-    char recv_buffer[LENGTH_MSG] = {};
+    char recv_buffer[LENGTH_MSG] = {};      //Received and sent messages saved on strings
     char send_buffer[LENGTH_SEND] = {};
     char server_buffer[LENGTH_SEND] = {};
     ClientList *np = (ClientList *)p_client;
@@ -112,7 +112,7 @@ int main()
     memset(&server_info, 0, s_addrlen);
     memset(&client_info, 0, c_addrlen);
     server_info.sin_family = PF_INET;
-    server_info.sin_addr.s_addr = inet_addr("192.168.43.168");
+    server_info.sin_addr.s_addr = inet_addr("192.168.43.168");  //defining ip_address of server that be used
     server_info.sin_port = htons(8888);
 
     // Bind and Listen
