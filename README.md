@@ -78,7 +78,7 @@ When you run this code you have to specify ip address of server used, so if ther
 
 PROGRAM ANALYSIS
 ======
-To understand and analyze data transfer that happen within the connection, we use Wireshark to capture communication between server-client and client-client. Here is some datas that we've captured:
+To understand and analyze data transfer that happen within the connection, we use Wireshark to capture communication between server-client and client-client (you can see that in file Capture.pcapng and put attention on transaction using TCP protocol). Here is some datas that we've captured:
 
 
-From that piece of data, we can see that: 
+From that piece of data, we can see that when client (ip 192.168.43.12) start the connection with the server (ip 192.168.43.168) the client sends signal to the server then the server acknowledging or indicating that the server has recieved the signal and then send the signal back then the client acknowledging it back. After make sure they have succesfully transfer the same signal they ready to transfer more data. As you can see at line 4 the client send data to server, then the server acknowledging the data at line 5.   
