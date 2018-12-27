@@ -53,12 +53,11 @@ Run The Server Code
 gcc -pthread -o server server.c
 ```
 2. Run the code
+
 It is important to remember that server code must be ran before the client code, and should be always on during chatting. If this code stop running, connection between clients are ended.
 ```
 ./server
 ```
-after this your screen will appear like below, and after that server terminal will record communication that happened between clients:
-
 
 
 Run The Client Code
@@ -68,13 +67,17 @@ Run The Client Code
 gcc -pthread -o client client.c
 ```
 2. Run the code
+
 You can run the client code on the same computer where the server code run but they must be ran on different terminal. You able to run several client codes on same computer.
 ```
 ./client
 ```
-When you run this code you have to specify ip address of server used, so if there are several server exist you can choose which server you want to use. You will also have to enter username that you want to use in groupchat. This username will appear on other clients terminal and server terminal. This picture show client terminal:
+When you run this code you have to specify ip address of server used, so if there are several server exist you can choose which server you want to use. You will also have to enter username that you want to use in groupchat. This username will appear on other clients terminal and server terminal.
 
 
+PROGRAM DOCUMENTATION
+======
+![Documentation](Capture.PNG)
 
 PROGRAM ANALYSIS
 ======
