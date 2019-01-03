@@ -41,7 +41,7 @@ ping (ip.address)
 ```
 if PING succeed, some data will appear on screen like picture below:
 
-
+![Documentation](Ping.png)
 this mean your computers have successfully connected and your computer ready to run the codes.
 
 
